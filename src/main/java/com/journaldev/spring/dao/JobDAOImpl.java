@@ -60,7 +60,7 @@ public class JobDAOImpl implements JobDAO {
 		// TODO Auto-generated method stub
 		Session session= this.sessionFactory.getCurrentSession();
 		Job job = (Job)session.load(Job.class, jobId);
-		
+		logger.info("job deleted successfully job details= "+job);
 		return job;
 	}
 

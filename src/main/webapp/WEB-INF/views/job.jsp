@@ -71,8 +71,8 @@
 	 <td>${job.jobName}</td>
 	 <td>${job.description}</td>
 	 <td>${job.creationDate}</td>
-	 <td><a href="<c:url  value='job/edit/${job.jobId}'/>">Edit</a></td>
-	 <td><a href="<c:url  value='job/delete/${job.jobId}'/>">Delete</a></td>
+	 <td><a href="<c:url  value='/job/edit/${job.jobId}'/>">Edit</a></td>
+	 <td><a href="<c:url  value='/job/delete/${job.jobId}'/>">Delete</a></td>
 	 </tr>
 	 </c:forEach>
 	 
