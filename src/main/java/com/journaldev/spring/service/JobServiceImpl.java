@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.journaldev.spring.dao.JobDAO;
+import com.journaldev.spring.model.Assignment;
 import com.journaldev.spring.model.Job;
 
 @Service
@@ -46,5 +47,11 @@ public class JobServiceImpl implements JobService {
 	public Job getJobById(int jobId) {
 		// TODO Auto-generated method stub
 		return this.jobDAO.getJobById(jobId);
+	} 
+	@Override
+	@Transactional
+	public void addAssignment(Assignment assignment) {
+		// TODO Auto-generated method stub
+		 this.jobDAO.addAssignment(assignment);
 	} 
 }

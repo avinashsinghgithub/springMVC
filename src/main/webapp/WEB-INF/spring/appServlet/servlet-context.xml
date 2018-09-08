@@ -47,6 +47,7 @@
 			<beans:list>
 				<beans:value>com.journaldev.spring.model.Person</beans:value>
 				<beans:value>com.journaldev.spring.model.Job</beans:value>
+				<beans:value>com.journaldev.spring.model.Assignment</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">

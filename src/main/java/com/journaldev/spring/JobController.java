@@ -9,22 +9,28 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.journaldev.spring.model.Assignment;
 import com.journaldev.spring.model.Job;
 import com.journaldev.spring.model.Person;
 import com.journaldev.spring.service.JobService;
+import com.journaldev.spring.service.PersonService;
 
 @Controller
 public class JobController {
 	
 	
 	private JobService jobService;
+	private PersonService personService;
 	
 	@Autowired
 	@Qualifier(value="jobService")
 	public void setJobService( JobService jobService){
 		this.jobService=jobService;
 	}
-
+	@Autowired
+	public void setPersonService( PersonService personService){
+		this.personService=personService;
+	}
 	@RequestMapping(value="/jobs",method=RequestMethod.GET)
 	public String listJobs(Model model){
 		model.addAttribute("job", new Job());
@@ -56,5 +62,22 @@ public class JobController {
 			model.addAttribute("job",this.jobService.getJobById(id)) ;
 			model.addAttribute("listJobs",this.jobService.listJobs());
 		return "job";
+	}
+	@RequestMapping(value="/jobAssignment",method=RequestMethod.GET)
+	public String jobAssignment(Model model){
+			model.addAttribute("assignment" ,new Assignment());
+			model.addAttribute("persons",this.personService.listPersons()) ;
+			model.addAttribute("jobs",this.jobService.listJobs());
+		return "jobAssignment";
+	}
+	@RequestMapping(value="/jobassignment",method=RequestMethod.POST)
+	public String saveJobAssignment(@ModelAttribute("assignment") Assignment assignment){
+			if(assignment.getAssignmentId()==0){
+				this.jobService.addAssignment(assignment);
+			}
+			//model.addAttribute("assignment")
+			//model.addAttribute("persons",this.personService.listPersons()) ;
+			//model.addAttribute("jobs",this.jobService.listJobs());
+		return "jobAssignment";
 	}
 }

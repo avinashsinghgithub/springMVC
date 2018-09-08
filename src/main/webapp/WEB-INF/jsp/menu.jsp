@@ -5,3 +5,5 @@
 <a href="<c:url  value='${base}/jobs/'/>">Jobs</a>
 <br>
 <a href="<c:url  value='${base}/persons/'/>">Persons</a>
+<br>
+<a href="<c:url  value='${base}/jobAssignment/'/>">Job Assignment</a>

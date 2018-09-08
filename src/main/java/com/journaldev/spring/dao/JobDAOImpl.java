@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.journaldev.spring.model.Assignment;
 import com.journaldev.spring.model.Job;
 
 @Repository
@@ -63,5 +64,12 @@ public class JobDAOImpl implements JobDAO {
 		logger.info("job deleted successfully job details= "+job);
 		return job;
 	}
-
+	@Override
+	public void addAssignment(Assignment assignment) {
+		// TODO Auto-generated method stub
+		Session session= this.sessionFactory.getCurrentSession();
+		session.save(assignment);
+		logger.info("assignment created successfully assignment details= "+assignment );
+		//return job;
+	}
 }
